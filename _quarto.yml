@@ -1,0 +1,87 @@
+project:
+  type: website
+  output-dir: docs           # GitHub Pages serves from /docs
+
+website:
+  title: "Your Name"
+  description: "Marketing Analytics Portfolio — Cal Poly Pomona"
+  favicon: assets/favicon.ico
+
+  # ── Google Analytics ──────────────────────────────────────────────
+  # Replace GA_MEASUREMENT_ID with your actual ID (e.g. G-XXXXXXXXXX)
+  google-analytics:
+    tracking-id: "GA_MEASUREMENT_ID"
+    anonymize-ip: true
+
+  # ── Open Graph / SEO ─────────────────────────────────────────────
+  open-graph:
+    title: "Your Name | Marketing Analytics Portfolio"
+    description: "Data-driven marketing analytics portfolio — Cal Poly Pomona"
+    image: assets/og-image.png
+    locale: en_US
+
+  twitter-card:
+    title: "Maurice Morgan | Portfolio"
+    description: "Marketing Analytics Portfolio — Cal Poly Pomona"
+    image: assets/og-image.png
+    card-style: summary_large_image
+
+  # ── Navigation ───────────────────────────────────────────────────
+  navbar:
+    title: false
+    logo: assets/logo.png        # optional: add a small logo file
+    background: "#0f2444"
+    foreground: "#f5f0e8"
+    pinned: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Projects"
+        href: pages/projects.qmd
+      - text: "Dashboard"
+        href: pages/dashboard.qmd
+      - text: "Presentation"
+        href: pages/presentation.qmd
+      - text: "About"
+        href: pages/about.qmd
+    right:
+      - icon: linkedin
+        href: https://linkedin.com/in/yourname
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/yourname
+        aria-label: GitHub
+
+  # ── Footer ───────────────────────────────────────────────────────
+  page-footer:
+    background: "#0f2444"
+    foreground: "#c9a84c"
+    left: "© 2026 Maurice Morgan · Cal Poly Pomona"
+    right:
+      - text: "LinkedIn"
+        href: https://linkedin.com/in/mtmorgan1
+      - text: "GitHub"
+        href: https://github.com/mtmorgan12
+
+  # ── Sidebar (used on Projects page) ──────────────────────────────
+  sidebar: false
+
+# ── Format defaults ───────────────────────────────────────────────
+format:
+  html:
+    theme:
+      - cosmo
+      - assets/custom.scss
+    toc: false
+    code-fold: true
+    code-copy: hover
+    code-overflow: wrap
+    smooth-scroll: true
+    link-external-newpage: true
+
+# ── Execution ─────────────────────────────────────────────────────
+execute:
+  freeze: auto
+  echo: true
+  warning: false
+  message: false

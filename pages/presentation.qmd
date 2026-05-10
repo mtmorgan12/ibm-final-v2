@@ -1,0 +1,249 @@
+---
+title: "RPE Project In-Class Activities"
+subtitle: "Exploratory Data Analysis and Understanding Data"
+author: "Maurice Morgan"
+institute: "IBM 3202 · Cal Poly Pomona"
+date: 2026-04-22
+format:
+  revealjs:
+    theme: default
+    footer: "EDA and Data Wrangling · IBM 3202"
+    transition: slide
+    transition-speed: fast
+    toc: true
+    toc-depth: 1
+    toc-title: "Table of Contents"
+    slide-number: true
+    scrollable: true
+    smaller: true
+    code-fold: false
+    code-overflow: wrap
+    code-copy: hover
+    embed-resources: true
+    self-contained-math: true
+    title-slide-attributes:
+      data-background-color: "#0f2444"
+execute:
+  echo: true
+  freeze: auto
+  error: true
+  warning: false
+  message: false
+---
+
+# Introduction
+
+## About This Presentation
+
+This presentation walks through the full EDA pipeline applied to the RPE (Rate of Perceived Exertion) combined survey dataset.
+
+**Goals:**
+
+-   Load and inspect a labelled SPSS dataset
+-   Apply data cleaning and standardization
+-   Perform exploratory data analysis
+-   Generate visualizations and initial insights
+
+## Loading Libraries and Data {#loading}
+
+```{r}
+#| label: package-loading
+
+# Uncomment to install if needed:
+# install.packages(c("tidyverse","haven","labelled","janitor","gt","sjPlot"))
+
+library(tidyverse)
+library(haven)
+library(labelled)
+library(janitor)
+library(gt)
+library(sjPlot)
+```
+
+## Reading and Printing Data
+
+```{r}
+#| label: data-reading
+#| eval: false   # set eval: true once data file is in /data/
+
+data <- read_sav("../data/RPE-Combined-2019-12-19.sav")
+data <- data |> clean_names()
+data
+```
+
+::: callout-tip
+**`clean_names()`** from `janitor` converts all column names to `snake_case`, removing spaces and special characters — essential for consistent downstream coding.
+:::
+
+# Data Exploration
+
+## Data Structure and Summary
+
+```{r}
+#| label: data-structure
+#| eval: false
+
+str(data)
+summary(data)
+glimpse(data)
+
+# Data dictionary — shows SPSS variable labels
+view_df(data)
+```
+
+## What `glimpse()` Tells Us
+
+`glimpse()` gives a quick transposed view of the dataset — perfect for a first look when you have many columns.
+
+| Output | What to look for |
+|---------------------|--------------------------------------------------|
+| Row / column count | Dataset size, potential performance issues |
+| Column types | `<dbl>`, `<chr>`, `<fct>`, `<lbl>` (labelled) |
+| First values | Obvious encoding issues, unexpected values |
+
+: {tbl-colwidths="[30,70]"}
+
+## The `labelled` Package
+
+SPSS `.sav` files store **variable labels** and **value labels** that R's `read_sav()` preserves as `<labelled>` vectors.
+
+```{r}
+#| label: labelled-demo
+#| eval: false
+
+# Inspect labels on one variable
+data |> pull(rpe_score) |> val_labels()   # replace with actual var name
+
+# Convert labelled vars to factors for plotting
+data_clean <- data |>
+  mutate(across(where(is.labelled), as_factor))
+```
+
+::: callout-note
+Always decide early whether to work with labelled vectors or convert to factors — mixing both leads to downstream issues.
+:::
+
+# Exploratory Data Analysis
+
+## EDA Overview
+
+::: callout-tip
+In this section we apply EDA techniques to:
+
+-   **Summarize** key characteristics (mean, median, spread)
+-   **Uncover** patterns and trends
+-   **Detect** anomalies and outliers
+-   **Assess** data quality (missing values, encoding issues)
+-   **Generate** insights that guide modeling and decisions
+:::
+
+## Descriptive Statistics
+
+```{r}
+#| label: descriptive-stats
+#| eval: false
+
+# Frequency tables for categorical variables
+data |>
+  count(gender, sort = TRUE) |>   # replace with actual variable name
+  mutate(pct = n / sum(n) * 100)
+
+# Summary statistics for numeric variables
+data |>
+  summarise(across(where(is.numeric),
+    list(mean = mean, sd = sd, median = median, min = min, max = max),
+    na.rm = TRUE
+  ))
+```
+
+## Distribution Visualization
+
+```{r}
+#| label: viz-distribution
+#| eval: false
+#| fig-cap: "Distribution of RPE scores — note bimodal pattern"
+
+data |>
+  ggplot(aes(x = rpe_score)) +     # replace with actual variable name
+  geom_histogram(fill = "#0f2444", color = "#c9a84c",
+                 bins = 20, alpha = 0.9) +
+  labs(title = "Distribution of RPE Scores",
+       x = "RPE Score", y = "Count") +
+  theme_minimal(base_family = "sans")
+```
+
+## Correlation Analysis
+
+```{r}
+#| label: correlation
+#| eval: false
+
+library(corrplot)
+
+data |>
+  select(where(is.numeric)) |>
+  cor(use = "complete.obs") |>
+  corrplot(method = "color", type = "upper",
+           tl.cex = 0.7, col = colorRampPalette(c("#c9a84c","white","#0f2444"))(200))
+```
+
+## Missing Data Assessment
+
+```{r}
+#| label: missing-data
+#| eval: false
+
+# Count and percentage of missings per variable
+data |>
+  summarise(across(everything(),
+    list(n_miss = ~sum(is.na(.)),
+         pct_miss = ~round(mean(is.na(.)) * 100, 1))
+  )) |>
+  pivot_longer(everything(),
+    names_to  = c("variable", ".value"),
+    names_sep = "_(?=[^_]+$)"
+  ) |>
+  filter(n_miss > 0) |>
+  arrange(desc(pct_miss))
+```
+
+# Findings and Next Steps
+
+## Key Takeaways
+
+::: columns
+::: {.column width="50%"}
+**Data Quality**
+
+-   X% of records complete (no missing values)
+-   Y variables required re-encoding from labelled format
+-   Z outliers flagged for review
+:::
+
+::: {.column width="50%"}
+**Substantive Patterns**
+
+-   RPE scores show a bimodal distribution — possible sub-population
+-   Several Likert items exhibit ceiling effects (\>70% at max)
+-   Strong correlation between \[var A\] and \[var B\] (*r* = 0.XX)
+:::
+:::
+
+## Recommended Next Steps
+
+1.  **Deeper missing data analysis** — investigate whether missingness is random (MAR) or systematic (MNAR)
+2.  **Sub-group analysis** — split by demographic variable to explore bimodal RPE pattern
+3.  **Feature engineering** — create composite scores from correlated Likert items
+4.  **Predictive modeling** — logistic or OLS regression on key outcome variable
+
+## References and Resources
+
+| Resource | Link |
+|-------------------------|-----------------------------------------------|
+| tidyverse documentation | <https://tidyverse.org> |
+| haven package | <https://haven.tidyverse.org> |
+| labelled package | <https://larmarange.github.io/labelled> |
+| janitor package | <https://sfirke.github.io/janitor> |
+| sjPlot package | <https://strengejacke.github.io/sjPlot> |
+
+: {tbl-colwidths="[35,65]"}

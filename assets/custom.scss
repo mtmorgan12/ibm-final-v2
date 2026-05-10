@@ -1,0 +1,156 @@
+/*-- scss:defaults --*/
+$primary:       #0f2444;
+$secondary:     #c9a84c;
+$body-bg:       #faf8f3;
+$body-color:    #1c1c1c;
+$link-color:    #0f2444;
+$font-size-base: 1rem;
+
+/*-- scss:rules --*/
+
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap');
+
+body { font-family: 'DM Sans', sans-serif; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: #0f2444; }
+code, pre { font-family: 'DM Mono', monospace; }
+
+/* ── Navbar ── */
+.navbar { border-bottom: 2px solid #c9a84c; }
+.navbar-brand { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #c9a84c !important; }
+.navbar-nav .nav-link { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; }
+.navbar-nav .nav-link:hover { color: #c9a84c !important; }
+
+/* ── Gold accent headings ── */
+.gold { color: #c9a84c; }
+.section-label {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #c9a84c; font-weight: 500; margin-bottom: 0.3rem; display: block;
+}
+.divider-gold {
+  width: 48px; height: 3px; background: #c9a84c;
+  margin: 0.75rem 0 2rem; border: none;
+}
+
+/* ── Hero / cover banner ── */
+.hero-banner {
+  background: linear-gradient(150deg, #0f2444 0%, #163057 55%, #0d1f38 100%);
+  color: white;
+  padding: 5rem 2rem 4rem;
+  margin: -1.5rem -1.5rem 3rem;
+  position: relative; overflow: hidden;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute; top: -20%; right: -10%;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #c9a84c; border: 1px solid rgba(201,168,76,0.4);
+  padding: 5px 14px; border-radius: 2px; margin-bottom: 1.25rem;
+}
+.hero-banner h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: white; line-height: 1.1; margin-bottom: 1rem;
+}
+.hero-banner h1 em { color: #c9a84c; font-style: normal; }
+.hero-banner .lead { color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 0.5rem; }
+.hero-banner .institution { color: rgba(255,255,255,0.4); font-size: 0.85rem; margin-bottom: 2rem; }
+.hero-photo {
+  width: 180px; height: 180px; border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(201,168,76,0.6);
+}
+.hero-photo-placeholder {
+  width: 180px; height: 180px; border-radius: 50%;
+  background: #1a3a6b; border: 3px solid rgba(201,168,76,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 3.5rem; color: #c9a84c;
+}
+
+/* ── Buttons ── */
+.btn-gold {
+  background: #c9a84c; color: #0f2444;
+  font-size: 0.82rem; font-weight: 500;
+  padding: 10px 26px; border-radius: 2px;
+  text-decoration: none; letter-spacing: 0.05em;
+  text-transform: uppercase; border: none; cursor: pointer;
+  transition: background 0.2s; display: inline-block;
+}
+.btn-gold:hover { background: #e8c97a; color: #0f2444; }
+.btn-outline-navy {
+  border: 1px solid rgba(255,255,255,0.3); color: white;
+  font-size: 0.82rem; padding: 10px 26px; border-radius: 2px;
+  text-decoration: none; letter-spacing: 0.05em;
+  text-transform: uppercase; display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline-navy:hover { border-color: #c9a84c; color: #c9a84c; }
+
+/* ── Cards ── */
+.card-project {
+  background: white; border: 1px solid rgba(15,36,68,0.1);
+  border-radius: 4px; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  height: 100%;
+}
+.card-project:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,36,68,0.1); }
+.card-project .card-thumb {
+  height: 160px; background: linear-gradient(135deg, #0f2444, #1a3a6b);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.8rem;
+}
+.card-project .card-cat {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: #c9a84c; font-weight: 500; margin-bottom: 0.4rem;
+}
+.card-project .card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: #0f2444; margin-bottom: 0.5rem;
+}
+.card-project .card-body { padding: 1.25rem; }
+
+/* ── Tech badge ── */
+.badge-tech {
+  display: inline-block;
+  font-size: 0.68rem; padding: 2px 8px;
+  background: #f0ece1; border: 1px solid rgba(15,36,68,0.1);
+  border-radius: 2px; color: #5a5a5a;
+  font-family: 'DM Mono', monospace; margin: 2px 2px 2px 0;
+}
+
+/* ── KPI grid ── */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.kpi-card {
+  background: white; border: 1px solid rgba(15,36,68,0.1);
+  border-radius: 4px; padding: 1.25rem;
+}
+.kpi-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 0.4rem; }
+.kpi-value { font-size: 1.8rem; font-weight: 300; color: #0f2444; line-height: 1; }
+.kpi-delta { font-size: 0.75rem; color: #2a7a4b; margin-top: 0.3rem; }
+.kpi-delta.neg { color: #b83232; }
+
+/* ── Skill tags ── */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.skill-card {
+  background: white; border: 1px solid rgba(15,36,68,0.1);
+  border-radius: 4px; padding: 1rem;
+}
+.skill-card h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #0f2444; margin-bottom: 0.6rem; }
+
+/* ── Callout overrides ── */
+.callout { border-left: 4px solid #c9a84c; border-radius: 2px; }
+.callout-title { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; }
+
+/* ── Page footer ── */
+.nav-footer { border-top: 2px solid #c9a84c; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-banner { padding: 3.5rem 1.25rem 3rem; }
+  .hero-banner h1 { font-size: 2.2rem; }
+}

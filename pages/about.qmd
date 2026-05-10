@@ -1,0 +1,112 @@
+---
+title: "About Me"
+description: "Marketing analytics student at Cal Poly Pomona — background, education, and professional goals."
+toc: false
+---
+
+[Background]{.section-label}
+
+<hr class="divider-gold">
+
+:::::: columns
+::: {.column width="30%"}
+```{=html}
+```
+
+**Maurice Morgan**\
+Marketing Management\
+Cal Poly Pomona
+
+[LinkedIn ↗](https://linkedin.com/in/mtmorgan1)\
+[GitHub ↗](https://github.com/mtmorgan12)\
+[📄 View My Resume](resume.pdf){.btn .btn-primary target="_blank"}
+[📄 Image of Yours Truly](me.pdf){.btn .btn-primary target="_blank"}
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="65%"}
+## Personal Statement
+
+Hello! I'm a Marketing Analytics student at Cal Poly Pomona with a genuine passion for data and the stories it can tell. My academic background spans quantitative research methods, consumer behavior, and digital marketing strategy — and I've spent the past two years applying those frameworks to real datasets.
+
+I believe the most valuable analysts are those who can move fluidly between the technical and the strategic, equally comfortable in a boardroom presenting insights to a non-technical audience. That's the profession I'm building toward. Additionally, I would like the opportunity to work for local government. I believe a strong local government helps foster a stronger sense of community.
+
+
+**What I bring to a team:**
+
+-   Strong foundation in EDA, regression modeling, and customer segmentation
+-   Experience presenting data-driven recommendations to diverse stakeholders
+-   Fluency across the analytics stack: R, Python, SQL, Tableau, Google Analytics
+-   A collaborative, curious disposition — I learn fast and ask good questions
+
+**Career Objective:** I'm seeking full-time or internship opportunities in marketing analytics, data science, or digital strategy. I'm particularly drawn to roles that blend quantitative rigor with consumer insight. I am also seeking data analysis positions, both full-time and part-time.
+:::
+::::::
+
+------------------------------------------------------------------------
+
+## Education
+
+| Degree | Institution | Year |
+|------------------------|------------------------|------------------------|
+| B.S. Business Administration — Marketing Analytics | Cal Poly Pomona | Expected May 2027 |
+| \[Relevant Certification, e.g. Google Analytics 4\] | Google / Coursera | 2024 |
+
+: {tbl-colwidths="\[50,35,15\]"}
+
+**Relevant Coursework:** IBM 3202 (Data Wrangling & EDA) · Marketing Research Methods · Predictive Analytics · Digital Marketing Strategy · Consumer Behavior · Database Marketing
+
+------------------------------------------------------------------------
+
+## Skills
+
+```{=html}
+<div class="skill-grid">
+  <div class="skill-card">
+    <h5>Programming Languages</h5>
+    <span class="badge-tech">R</span>
+    <span class="badge-tech">Python</span>
+    <span class="badge-tech">SQL</span>
+    <span class="badge-tech">JavaScript (basic)</span>
+  </div>
+  <div class="skill-card">
+    <h5>Analytics Methods</h5>
+    <span class="badge-tech">EDA</span>
+    <span class="badge-tech">Linear Regression</span>
+    <span class="badge-tech">Logistic Regression</span>
+    <span class="badge-tech">Clustering</span>
+    <span class="badge-tech">A/B Testing</span>
+  </div>
+  <div class="skill-card">
+    <h5>Visualization</h5>
+    <span class="badge-tech">ggplot2</span>
+    <span class="badge-tech">Tableau</span>
+    <span class="badge-tech">Power BI</span>
+    <span class="badge-tech">matplotlib</span>
+  </div>
+  <div class="skill-card">
+    <h5>Platforms & Tools</h5>
+    <span class="badge-tech">Quarto</span>
+    <span class="badge-tech">GitHub</span>
+    <span class="badge-tech">Google Analytics 4</span>
+    <span class="badge-tech">Excel</span>
+    <span class="badge-tech">SPSS</span>
+  </div>
+</div>
+```
+
+------------------------------------------------------------------------
+
+## Achievements & Activities
+
+-   **Dean's List** — \[semesters\] consecutive semesters
+-   **\[Work Experience\]** — McDonald's June 2022-October 2022 FedEx April 2025-August 2025
+-   **\[Award or Certification\]** — Manage GA4 Data and Learn to Read Reports
+
+------------------------------------------------------------------------
+
+## Contact
+
+Reach me at **mtmorgan\@cpp.edu** or connect on [LinkedIn](https://linkedin.com/in/mtmorgan12). I respond within 48 hours.

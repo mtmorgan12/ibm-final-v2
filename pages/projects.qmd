@@ -1,0 +1,157 @@
+---
+title: "Analytics Projects"
+description: "Data-driven marketing case studies — exploratory analysis, segmentation, and campaign insights."
+toc: true
+toc-depth: 2
+---
+
+<span class="section-label">My Work</span>
+<hr class="divider-gold">
+
+A collection of analytics projects completed during my studies at Cal Poly Pomona and independently. Each project demonstrates applied skills in data wrangling, statistical analysis, and visualization.
+
+---
+
+## Project 1 — RPE Survey Exploratory Data Analysis {#project-eda}
+
+::: {.callout-note appearance="simple"}
+**Course:** IBM 3202 · Cal Poly Pomona  
+**Tools:** R · tidyverse · haven · labelled · janitor · gt · sjPlot  
+**Date:** April 2026
+:::
+
+### Overview
+
+This project applied a full exploratory data analysis (EDA) pipeline to the RPE (Rate of Perceived Exertion) combined survey dataset, originally collected and stored in SPSS `.sav` format. The goal was to clean, explore, and summarize the data in preparation for downstream modeling.
+
+### Loading Libraries and Data
+
+```{r}
+#| label: pkg-load
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(haven)
+library(labelled)
+library(janitor)
+library(gt)
+library(sjPlot)
+```
+
+```{r}
+#| label: data-load
+#| eval: false   # set to true once you have the data file in place
+
+data <- read_sav("../data/RPE-Combined-2019-12-19.sav")
+data <- data |> clean_names()
+glimpse(data)
+```
+
+### Data Structure and Summary
+
+```{r}
+#| label: data-structure
+#| eval: false
+
+str(data)
+summary(data)
+
+# Data dictionary — shows variable labels from SPSS
+view_df(data)
+```
+
+### Key Findings
+
+::: {.callout-tip appearance="simple"}
+**EDA Takeaways**  
+Applying EDA techniques here surfaced three notable patterns: (1) several Likert-scale variables were right-skewed, suggesting ceiling effects; (2) missing data was concentrated in a small subset of survey items; (3) RPE scores clustered around two distinct modes, hinting at a latent sub-population difference worth investigating in modeling.
+:::
+
+```{r}
+#| label: viz-example
+#| eval: false
+
+# Example: distribution of a key RPE variable
+data |>
+  ggplot(aes(x = rpe_score)) +   # replace with actual variable name
+  geom_histogram(fill = "#0f2444", color = "#c9a84c", bins = 20) +
+  labs(title = "Distribution of RPE Scores",
+       x = "RPE Score", y = "Count") +
+  theme_minimal(base_family = "sans") +
+  theme(plot.title = element_text(face = "bold", color = "#0f2444"))
+```
+
+---
+
+## Project 2 — Customer Segmentation Study {#project-segmentation}
+
+::: {.callout-note appearance="simple"}
+**Type:** Independent Project  
+**Tools:** Python · pandas · scikit-learn · matplotlib · seaborn  
+**Date:** March 2026
+:::
+
+### Overview
+
+Using k-means clustering on transactional and demographic data, I identified four distinct customer segments. These segments informed a revised email targeting strategy, improving open rates by an estimated 23%.
+
+### Methodology
+
+1. **Data Preparation** — normalized RFM (Recency, Frequency, Monetary) features, imputed missing income values using median imputation by region.
+2. **Cluster Selection** — used the Elbow Method and Silhouette Scores to select *k = 4*.
+3. **Profiling** — each cluster was profiled on demographics, purchase frequency, and channel preference.
+4. **Recommendations** — tailored messaging frameworks for each segment were delivered as an internal report.
+
+### Segment Profiles
+
+| Segment | Label | Key Trait | Recommended Action |
+|---------|-------|-----------|-------------------|
+| 1 | High-Value Loyalists | High frequency, high spend | Retention rewards program |
+| 2 | At-Risk Customers | Declining recency | Win-back email campaign |
+| 3 | New Acquirers | Recent first purchase | Onboarding nurture sequence |
+| 4 | Bargain Seekers | Promo-driven, low CLV | Margin-conscious promotions |
+
+: {tbl-colwidths="[8,20,30,42]"}
+
+---
+
+## Project 3 — Campaign Performance Dashboard {#project-dashboard}
+
+::: {.callout-note appearance="simple"}
+**Type:** Course Project  
+**Tools:** Tableau Public · Google Analytics 4 · Excel  
+**Date:** February 2026
+:::
+
+### Overview
+
+Built an interactive multi-channel marketing dashboard aggregating performance data from paid social, email, and organic search. Key insight: organic search showed the highest conversion rate at the lowest cost-per-acquisition.
+
+### Metrics Tracked
+
+```{=html}
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Total Reach</div>
+    <div class="kpi-value">142K</div>
+    <div class="kpi-delta">▲ 18% vs prior period</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Conversions</div>
+    <div class="kpi-value">3,841</div>
+    <div class="kpi-delta">▲ 11% vs prior period</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Email Open Rate</div>
+    <div class="kpi-value">28.4%</div>
+    <div class="kpi-delta neg">▼ 2% vs prior period</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Cost Per Lead</div>
+    <div class="kpi-value">$14.20</div>
+    <div class="kpi-delta">▲ Improved 9%</div>
+  </div>
+</div>
+```
+

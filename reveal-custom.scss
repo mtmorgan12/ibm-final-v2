@@ -1,0 +1,43 @@
+/*-- revealjs custom theme --*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=DM+Mono&display=swap');
+
+section.has-dark-background h1,
+section.has-dark-background h2,
+section.has-dark-background h3 { color: #c9a84c; }
+
+.reveal {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  color: #1c1c1c;
+  background: #faf8f3;
+}
+
+.reveal h1, .reveal h2 {
+  font-family: 'Playfair Display', serif;
+  color: #0f2444;
+}
+
+.reveal h3, .reveal h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500; color: #0f2444;
+}
+
+.reveal .slide-number { color: #c9a84c; }
+
+.reveal .footer { color: rgba(15,36,68,0.5); font-size: 0.75rem; }
+
+.reveal .callout {
+  border-left: 4px solid #c9a84c !important;
+  background: rgba(201,168,76,0.06) !important;
+}
+
+.reveal pre code { font-family: 'DM Mono', monospace; }
+
+.reveal .title-slide {
+  background: #0f2444 !important;
+}
+.reveal .title-slide h1,
+.reveal .title-slide .subtitle,
+.reveal .title-slide .author { color: #c9a84c; }
+.reveal .title-slide .institute,
+.reveal .title-slide .date { color: rgba(255,255,255,0.6); }

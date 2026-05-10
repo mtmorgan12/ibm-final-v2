@@ -1,0 +1,144 @@
+---
+title: "Marketing Dashboard"
+description: "Interactive marketing performance dashboard — Q1 2025 campaign overview."
+toc: false
+---
+
+```{r}
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("ggplot2")) install.packages("ggplot2")
+if (!require("plotly")) install.packages("plotly")
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("knitr")) install.packages("knitr")
+
+library(tidyverse)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(knitr)
+```
+
+
+[Live Analytics]{.section-label}
+
+<hr class="divider-gold">
+
+This dashboard tracks key marketing KPIs across all active channels. Built using Tableau Public and R, it aggregates data from Google Analytics 4, paid social exports, and the CRM.
+
+------------------------------------------------------------------------
+
+## KPI Summary — Q1 2025
+
+```{=html}
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Total Reach</div>
+    <div class="kpi-value">142K</div>
+    <div class="kpi-delta">▲ 18% vs Q4 2024</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Conversions</div>
+    <div class="kpi-value">3,841</div>
+    <div class="kpi-delta">▲ 11% vs Q4 2024</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Email Open Rate</div>
+    <div class="kpi-value">28.4%</div>
+    <div class="kpi-delta neg">▼ 2% vs Q4 2024</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Cost Per Lead</div>
+    <div class="kpi-value">$14.20</div>
+    <div class="kpi-delta">▲ Improved 9%</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Organic Sessions</div>
+    <div class="kpi-value">68.4K</div>
+    <div class="kpi-delta">▲ 34% vs Q4 2024</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Avg. Session Duration</div>
+    <div class="kpi-value">2m 18s</div>
+    <div class="kpi-delta">▲ 8% vs Q4 2024</div>
+  </div>
+</div>
+```
+
+------------------------------------------------------------------------
+
+
+## Monthly Conversions — R Chart
+
+```{r}
+#| label: monthly-conversions
+#| fig-alt: "Bar chart showing monthly conversions from October 2024 through March 2025"
+#| fig-cap: "Monthly conversions across all channels, Q1 2025. February spike driven by organic search content refresh."
+
+library(tidyverse)
+
+conversions <- tibble(
+  month = factor(
+    c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar"),
+    levels = c("Oct", "Nov", "Dec", "Jan", "Feb", "Mar")
+  ),
+  value    = c(210, 290, 340, 280, 410, 380),
+  highlight = c(FALSE, FALSE, FALSE, FALSE, TRUE, FALSE)
+)
+
+ggplot(conversions, aes(x = month, y = value, fill = highlight)) +
+  geom_col(width = 0.65) +
+  geom_text(aes(label = scales::comma(value)), vjust = -0.5,
+            size = 3.2, family = "sans", color = "#0f2444") +
+  scale_fill_manual(values = c(`FALSE` = "#0f2444", `TRUE` = "#c9a84c"),
+                    guide = "none") +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.12)),
+                     labels = scales::comma) +
+  labs(x = NULL, y = "Conversions",
+       caption = "Gold bar = peak month (February)") +
+  theme_minimal(base_family = "sans") +
+  theme(
+    axis.text  = element_text(color = "#5a5a5a", size = 10),
+    axis.title = element_text(color = "#0f2444", size = 10),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor   = element_blank(),
+    plot.caption = element_text(color = "#888", size = 8)
+  )
+```
+
+------------------------------------------------------------------------
+
+## Channel Mix — R Pie / Donut
+
+```{r}
+#| label: channel-mix
+#| fig-alt: "Donut chart showing marketing channel mix for Q1 2025"
+#| fig-cap: "Q1 2025 channel mix by conversion volume. Organic search is the top driver."
+
+channels <- tibble(
+  channel = c("Organic Search", "Paid Social", "Email", "Direct"),
+  pct     = c(42, 28, 18, 12)
+) |>
+  mutate(
+    channel = fct_reorder(channel, pct, .desc = TRUE),
+    label   = paste0(channel, "\n", pct, "%")
+  )
+
+ggplot(channels, aes(x = 2, y = pct, fill = channel)) +
+  geom_col(width = 1, color = "white", linewidth = 0.8) +
+  coord_polar(theta = "y", start = 0) +
+  xlim(0.5, 2.5) +
+  scale_fill_manual(values = c(
+    "Organic Search" = "#0f2444",
+    "Paid Social"    = "#c9a84c",
+    "Email"          = "#1a3a6b",
+    "Direct"         = "#b0a080"
+  )) +
+  labs(fill = "Channel") +
+  theme_void(base_family = "sans") +
+  theme(legend.position = "right",
+        legend.text = element_text(size = 9, color = "#1c1c1c"))
+```
+
+::: {.callout-note appearance="simple"}
+**Key Insight:** Organic search conversions grew 34% in February following the content refresh initiative — the strongest ROI of any channel this quarter. Recommend increasing SEO investment in Q2.
+:::

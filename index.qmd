@@ -1,0 +1,119 @@
+---
+title: ""
+description: "Marketing Analytics Portfolio — Cal Poly Pomona"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<!-- ══ HERO BANNER ══════════════════════════════════════════════════ -->
+<section class="hero-banner">
+  <div class="container">
+    <div class="row align-items-center g-4">
+
+      <!-- Text column -->
+      <div class="col-lg-8">
+        <div class="hero-tag">Marketing Analytics Portfolio</div>
+        <h1>Maurice <em>Morgan</em><br></h1>
+        <p class="lead">Marketing Analytics · Data Visualization · Strategic Insights</p>
+        <p class="institution">B.S. Business Administration · Cal Poly Pomona · Class of 2027</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="pages/projects.qmd" class="btn-gold">View My Work</a>
+          <a href="pages/about.qmd"    class="btn-outline-navy">About Me</a>
+        </div>
+      </div>
+
+      <!-- Photo column -->
+      <div class="col-lg-4 text-center">
+        <!-- REPLACE: swap the div below for <img src="../assets/photo.jpg" class="hero-photo" alt="Maurice Morgan> -->
+        <div class="hero-photo-placeholder mx-auto"></div>
+        <div class="d-flex justify-content-center gap-2 mt-3">
+          <a href="https://linkedin.com/in/mtmorgan1" class="btn-outline-navy" style="padding:6px 14px; font-size:0.75rem;">LinkedIn</a>
+          <a href="https://github.com/mtmorgan12"      class="btn-outline-navy" style="padding:6px 14px; font-size:0.75rem;">GitHub</a>
+          <a href="assets/resume.pdf"                class="btn-outline-navy" style="padding:6px 14px; font-size:0.75rem;"></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## Quick Profile
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+<span class="section-label">Who I Am</span>
+<hr class="divider-gold">
+
+I'm a Marketing Analytics student at Cal Poly Pomona with a passion for turning complex data into clear, actionable insights. I combine technical skills in R and Python with a strategic marketing mindset — helping organizations make better, faster decisions.
+
+My work spans exploratory data analysis, customer segmentation, campaign performance modeling, and interactive dashboard development. I'm driven by curiosity: every dataset is a story waiting to be told.
+
+**Career Objective:** Seeking a full-time or internship role in marketing analytics or data science where I can apply quantitative skills to real business challenges.
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="35%"}
+
+<span class="section-label">Education</span>
+<hr class="divider-gold">
+
+**B.S. Business Administration**  
+*Marketing Analytics Concentration*  
+Cal Poly Pomona — Expected May 2025  
+GPA: 3.X / 4.0
+
+**Relevant Coursework**  
+- IBM 3202: Data Wrangling & EDA  
+- Marketing Research Methods  
+- Predictive Analytics  
+- Digital Marketing Strategy  
+
+:::
+
+:::
+
+---
+
+## Skills
+
+```{=html}
+<div class="skill-grid">
+  <div class="skill-card">
+    <h5>Programming</h5>
+    <span class="badge-tech">R</span>
+    <span class="badge-tech">Python</span>
+    <span class="badge-tech">SQL</span>
+  </div>
+  <div class="skill-card">
+    <h5>Analytics</h5>
+    <span class="badge-tech">EDA</span>
+    <span class="badge-tech">Regression</span>
+    <span class="badge-tech">Segmentation</span>
+    <span class="badge-tech">A/B Testing</span>
+  </div>
+  <div class="skill-card">
+    <h5>Visualization</h5>
+    <span class="badge-tech">ggplot2</span>
+    <span class="badge-tech">Tableau</span>
+    <span class="badge-tech">Power BI</span>
+  </div>
+  <div class="skill-card">
+    <h5>Tools & Platforms</h5>
+    <span class="badge-tech">Quarto</span>
+    <span class="badge-tech">GitHub</span>
+    <span class="badge-tech">Google Analytics</span>
+    <span class="badge-tech">Excel</span>
+  </div>
+</div>
+```
+
+---

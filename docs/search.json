@@ -1,0 +1,219 @@
+[
+  {
+    "objectID": "pages/about.html",
+    "href": "pages/about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Background"
+  },
+  {
+    "objectID": "pages/about.html#personal-statement",
+    "href": "pages/about.html#personal-statement",
+    "title": "About Me",
+    "section": "Personal Statement",
+    "text": "Personal Statement\nHello! I’m a Marketing Analytics student at Cal Poly Pomona with a genuine passion for data and the stories it can tell. My academic background spans quantitative research methods, consumer behavior, and digital marketing strategy — and I’ve spent the past two years applying those frameworks to real datasets.\nI believe the most valuable analysts are those who can move fluidly between the technical and the strategic, equally comfortable in a boardroom presenting insights to a non-technical audience. That’s the profession I’m building toward. Additionally, I would like the opportunity to work for local government. I believe a strong local government helps foster a stronger sense of community.\nWhat I bring to a team:\n\nStrong foundation in EDA, regression modeling, and customer segmentation\nExperience presenting data-driven recommendations to diverse stakeholders\nFluency across the analytics stack: R, Python, SQL, Tableau, Google Analytics\nA collaborative, curious disposition — I learn fast and ask good questions\n\nCareer Objective: I’m seeking full-time or internship opportunities in marketing analytics, data science, or digital strategy. I’m particularly drawn to roles that blend quantitative rigor with consumer insight. I am also seeking data analysis positions, both full-time and part-time."
+  },
+  {
+    "objectID": "pages/about.html#education",
+    "href": "pages/about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\n\n\n\n\n\n\n\nDegree\nInstitution\nYear\n\n\n\n\nB.S. Business Administration — Marketing Analytics\nCal Poly Pomona\nExpected May 2027\n\n\n[Relevant Certification, e.g. Google Analytics 4]\nGoogle / Coursera\n2024\n\n\n\nRelevant Coursework: IBM 3202 (Data Wrangling & EDA) · Marketing Research Methods · Predictive Analytics · Digital Marketing Strategy · Consumer Behavior · Database Marketing"
+  },
+  {
+    "objectID": "pages/about.html#skills",
+    "href": "pages/about.html#skills",
+    "title": "About Me",
+    "section": "Skills",
+    "text": "Skills\n\n  \n    Programming Languages\n    R\n    Python\n    SQL\n    JavaScript (basic)\n  \n  \n    Analytics Methods\n    EDA\n    Linear Regression\n    Logistic Regression\n    Clustering\n    A/B Testing\n  \n  \n    Visualization\n    ggplot2\n    Tableau\n    Power BI\n    matplotlib\n  \n  \n    Platforms & Tools\n    Quarto\n    GitHub\n    Google Analytics 4\n    Excel\n    SPSS"
+  },
+  {
+    "objectID": "pages/about.html#achievements-activities",
+    "href": "pages/about.html#achievements-activities",
+    "title": "About Me",
+    "section": "Achievements & Activities",
+    "text": "Achievements & Activities\n\nDean’s List — [semesters] consecutive semesters\n[Work Experience] — McDonald’s June 2022-October 2022 FedEx April 2025-August 2025\n[Award or Certification] — Manage GA4 Data and Learn to Read Reports"
+  },
+  {
+    "objectID": "pages/about.html#contact",
+    "href": "pages/about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\nReach me at mtmorgan@cpp.edu or connect on LinkedIn. I respond within 48 hours."
+  },
+  {
+    "objectID": "pages/dashboard.html",
+    "href": "pages/dashboard.html",
+    "title": "Marketing Dashboard",
+    "section": "",
+    "text": "Code\nif (!require(\"tidyverse\")) install.packages(\"tidyverse\")\nif (!require(\"ggplot2\")) install.packages(\"ggplot2\")\nif (!require(\"plotly\")) install.packages(\"plotly\")\nif (!require(\"dplyr\")) install.packages(\"dplyr\")\nif (!require(\"knitr\")) install.packages(\"knitr\")\n\nlibrary(tidyverse)\nlibrary(ggplot2)\nlibrary(plotly)\nlibrary(dplyr)\nlibrary(knitr)\nLive Analytics\nThis dashboard tracks key marketing KPIs across all active channels. Built using Tableau Public and R, it aggregates data from Google Analytics 4, paid social exports, and the CRM."
+  },
+  {
+    "objectID": "pages/dashboard.html#kpi-summary-q1-2025",
+    "href": "pages/dashboard.html#kpi-summary-q1-2025",
+    "title": "Marketing Dashboard",
+    "section": "KPI Summary — Q1 2025",
+    "text": "KPI Summary — Q1 2025\n\n  \n    Total Reach\n    142K\n    ▲ 18% vs Q4 2024\n  \n  \n    Conversions\n    3,841\n    ▲ 11% vs Q4 2024\n  \n  \n    Email Open Rate\n    28.4%\n    ▼ 2% vs Q4 2024\n  \n  \n    Cost Per Lead\n    $14.20\n    ▲ Improved 9%\n  \n  \n    Organic Sessions\n    68.4K\n    ▲ 34% vs Q4 2024\n  \n  \n    Avg. Session Duration\n    2m 18s\n    ▲ 8% vs Q4 2024"
+  },
+  {
+    "objectID": "pages/dashboard.html#monthly-conversions-r-chart",
+    "href": "pages/dashboard.html#monthly-conversions-r-chart",
+    "title": "Marketing Dashboard",
+    "section": "Monthly Conversions — R Chart",
+    "text": "Monthly Conversions — R Chart\n\n\nCode\nlibrary(tidyverse)\n\nconversions &lt;- tibble(\n  month = factor(\n    c(\"Oct\", \"Nov\", \"Dec\", \"Jan\", \"Feb\", \"Mar\"),\n    levels = c(\"Oct\", \"Nov\", \"Dec\", \"Jan\", \"Feb\", \"Mar\")\n  ),\n  value    = c(210, 290, 340, 280, 410, 380),\n  highlight = c(FALSE, FALSE, FALSE, FALSE, TRUE, FALSE)\n)\n\nggplot(conversions, aes(x = month, y = value, fill = highlight)) +\n  geom_col(width = 0.65) +\n  geom_text(aes(label = scales::comma(value)), vjust = -0.5,\n            size = 3.2, family = \"sans\", color = \"#0f2444\") +\n  scale_fill_manual(values = c(`FALSE` = \"#0f2444\", `TRUE` = \"#c9a84c\"),\n                    guide = \"none\") +\n  scale_y_continuous(expand = expansion(mult = c(0, 0.12)),\n                     labels = scales::comma) +\n  labs(x = NULL, y = \"Conversions\",\n       caption = \"Gold bar = peak month (February)\") +\n  theme_minimal(base_family = \"sans\") +\n  theme(\n    axis.text  = element_text(color = \"#5a5a5a\", size = 10),\n    axis.title = element_text(color = \"#0f2444\", size = 10),\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor   = element_blank(),\n    plot.caption = element_text(color = \"#888\", size = 8)\n  )\n\n\n\n\n\nMonthly conversions across all channels, Q1 2025. February spike driven by organic search content refresh."
+  },
+  {
+    "objectID": "pages/dashboard.html#channel-mix-r-pie-donut",
+    "href": "pages/dashboard.html#channel-mix-r-pie-donut",
+    "title": "Marketing Dashboard",
+    "section": "Channel Mix — R Pie / Donut",
+    "text": "Channel Mix — R Pie / Donut\n\n\nCode\nchannels &lt;- tibble(\n  channel = c(\"Organic Search\", \"Paid Social\", \"Email\", \"Direct\"),\n  pct     = c(42, 28, 18, 12)\n) |&gt;\n  mutate(\n    channel = fct_reorder(channel, pct, .desc = TRUE),\n    label   = paste0(channel, \"\\n\", pct, \"%\")\n  )\n\nggplot(channels, aes(x = 2, y = pct, fill = channel)) +\n  geom_col(width = 1, color = \"white\", linewidth = 0.8) +\n  coord_polar(theta = \"y\", start = 0) +\n  xlim(0.5, 2.5) +\n  scale_fill_manual(values = c(\n    \"Organic Search\" = \"#0f2444\",\n    \"Paid Social\"    = \"#c9a84c\",\n    \"Email\"          = \"#1a3a6b\",\n    \"Direct\"         = \"#b0a080\"\n  )) +\n  labs(fill = \"Channel\") +\n  theme_void(base_family = \"sans\") +\n  theme(legend.position = \"right\",\n        legend.text = element_text(size = 9, color = \"#1c1c1c\"))\n\n\n\n\n\nQ1 2025 channel mix by conversion volume. Organic search is the top driver.\n\n\n\n\n\n\n\n\n\n\nKey Insight: Organic search conversions grew 34% in February following the content refresh initiative — the strongest ROI of any channel this quarter. Recommend increasing SEO investment in Q2."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Maurice Morgan",
+    "section": "",
+    "text": "Marketing Analytics Portfolio\n        \n        Marketing Analytics · Data Visualization · Strategic Insights\n        B.S. Business Administration · Cal Poly Pomona · Class of 2027\n        \n          View My Work\n          About Me\n        \n      \n\n      \n      \n        \n        \n        \n          LinkedIn\n          GitHub"
+  },
+  {
+    "objectID": "index.html#quick-profile",
+    "href": "index.html#quick-profile",
+    "title": "Maurice Morgan",
+    "section": "Quick Profile",
+    "text": "Quick Profile\n\n\nWho I Am\n\nI’m a Marketing Analytics student at Cal Poly Pomona with a passion for turning complex data into clear, actionable insights. I combine technical skills in R and Python with a strategic marketing mindset — helping organizations make better, faster decisions.\nMy work spans exploratory data analysis, customer segmentation, campaign performance modeling, and interactive dashboard development. I’m driven by curiosity: every dataset is a story waiting to be told.\nCareer Objective: Seeking a full-time or internship role in marketing analytics or data science where I can apply quantitative skills to real business challenges.\n:::\n\n\n\n\nEducation\n\nB.S. Business Administration\nMarketing Analytics Concentration\nCal Poly Pomona — Expected May 2025\nGPA: 3.X / 4.0\nRelevant Coursework\n- IBM 3202: Data Wrangling & EDA\n- Marketing Research Methods\n- Predictive Analytics\n- Digital Marketing Strategy\n:::\n:::\n\n\nSkills\n\n  \n    Programming\n    R\n    Python\n    SQL\n  \n  \n    Analytics\n    EDA\n    Regression\n    Segmentation\n    A/B Testing\n  \n  \n    Visualization\n    ggplot2\n    Tableau\n    Power BI\n  \n  \n    Tools & Platforms\n    Quarto\n    GitHub\n    Google Analytics\n    Excel"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Maurice Morgan",
+    "section": "Skills",
+    "text": "Skills\n\n  \n    Programming\n    R\n    Python\n    SQL\n  \n  \n    Analytics\n    EDA\n    Regression\n    Segmentation\n    A/B Testing\n  \n  \n    Visualization\n    ggplot2\n    Tableau\n    Power BI\n  \n  \n    Tools & Platforms\n    Quarto\n    GitHub\n    Google Analytics\n    Excel"
+  },
+  {
+    "objectID": "pages/presentation.html#about-this-presentation",
+    "href": "pages/presentation.html#about-this-presentation",
+    "title": "RPE Project In-Class Activities",
+    "section": "About This Presentation",
+    "text": "About This Presentation\nThis presentation walks through the full EDA pipeline applied to the RPE (Rate of Perceived Exertion) combined survey dataset.\nGoals:\n\nLoad and inspect a labelled SPSS dataset\nApply data cleaning and standardization\nPerform exploratory data analysis\nGenerate visualizations and initial insights"
+  },
+  {
+    "objectID": "pages/presentation.html#loading",
+    "href": "pages/presentation.html#loading",
+    "title": "RPE Project In-Class Activities",
+    "section": "Loading Libraries and Data",
+    "text": "Loading Libraries and Data\n\n# Uncomment to install if needed:\n# install.packages(c(\"tidyverse\",\"haven\",\"labelled\",\"janitor\",\"gt\",\"sjPlot\"))\n\nlibrary(tidyverse)\nlibrary(haven)\nlibrary(labelled)\nlibrary(janitor)\nlibrary(gt)\nlibrary(sjPlot)"
+  },
+  {
+    "objectID": "pages/presentation.html#reading-and-printing-data",
+    "href": "pages/presentation.html#reading-and-printing-data",
+    "title": "RPE Project In-Class Activities",
+    "section": "Reading and Printing Data",
+    "text": "Reading and Printing Data\n\ndata &lt;- read_sav(\"../data/RPE-Combined-2019-12-19.sav\")\ndata &lt;- data |&gt; clean_names()\ndata\n\n\n\n\n\n\n\nTip\n\n\nclean_names() from janitor converts all column names to snake_case, removing spaces and special characters — essential for consistent downstream coding."
+  },
+  {
+    "objectID": "pages/presentation.html#data-structure-and-summary",
+    "href": "pages/presentation.html#data-structure-and-summary",
+    "title": "RPE Project In-Class Activities",
+    "section": "Data Structure and Summary",
+    "text": "Data Structure and Summary\n\nstr(data)\nsummary(data)\nglimpse(data)\n\n# Data dictionary — shows SPSS variable labels\nview_df(data)"
+  },
+  {
+    "objectID": "pages/presentation.html#what-glimpse-tells-us",
+    "href": "pages/presentation.html#what-glimpse-tells-us",
+    "title": "RPE Project In-Class Activities",
+    "section": "What glimpse() Tells Us",
+    "text": "What glimpse() Tells Us\nglimpse() gives a quick transposed view of the dataset — perfect for a first look when you have many columns.\n\n\n\n\n\n\n\nOutput\nWhat to look for\n\n\n\n\nRow / column count\nDataset size, potential performance issues\n\n\nColumn types\n&lt;dbl&gt;, &lt;chr&gt;, &lt;fct&gt;, &lt;lbl&gt; (labelled)\n\n\nFirst values\nObvious encoding issues, unexpected values"
+  },
+  {
+    "objectID": "pages/presentation.html#the-labelled-package",
+    "href": "pages/presentation.html#the-labelled-package",
+    "title": "RPE Project In-Class Activities",
+    "section": "The labelled Package",
+    "text": "The labelled Package\nSPSS .sav files store variable labels and value labels that R’s read_sav() preserves as &lt;labelled&gt; vectors.\n\n# Inspect labels on one variable\ndata |&gt; pull(rpe_score) |&gt; val_labels()   # replace with actual var name\n\n# Convert labelled vars to factors for plotting\ndata_clean &lt;- data |&gt;\n  mutate(across(where(is.labelled), as_factor))\n\n\n\n\n\n\n\nNote\n\n\nAlways decide early whether to work with labelled vectors or convert to factors — mixing both leads to downstream issues."
+  },
+  {
+    "objectID": "pages/presentation.html#eda-overview",
+    "href": "pages/presentation.html#eda-overview",
+    "title": "RPE Project In-Class Activities",
+    "section": "EDA Overview",
+    "text": "EDA Overview\n\n\n\n\n\n\nTip\n\n\nIn this section we apply EDA techniques to:\n\nSummarize key characteristics (mean, median, spread)\nUncover patterns and trends\nDetect anomalies and outliers\nAssess data quality (missing values, encoding issues)\nGenerate insights that guide modeling and decisions"
+  },
+  {
+    "objectID": "pages/presentation.html#descriptive-statistics",
+    "href": "pages/presentation.html#descriptive-statistics",
+    "title": "RPE Project In-Class Activities",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\n# Frequency tables for categorical variables\ndata |&gt;\n  count(gender, sort = TRUE) |&gt;   # replace with actual variable name\n  mutate(pct = n / sum(n) * 100)\n\n# Summary statistics for numeric variables\ndata |&gt;\n  summarise(across(where(is.numeric),\n    list(mean = mean, sd = sd, median = median, min = min, max = max),\n    na.rm = TRUE\n  ))"
+  },
+  {
+    "objectID": "pages/presentation.html#distribution-visualization",
+    "href": "pages/presentation.html#distribution-visualization",
+    "title": "RPE Project In-Class Activities",
+    "section": "Distribution Visualization",
+    "text": "Distribution Visualization\n\ndata |&gt;\n  ggplot(aes(x = rpe_score)) +     # replace with actual variable name\n  geom_histogram(fill = \"#0f2444\", color = \"#c9a84c\",\n                 bins = 20, alpha = 0.9) +\n  labs(title = \"Distribution of RPE Scores\",\n       x = \"RPE Score\", y = \"Count\") +\n  theme_minimal(base_family = \"sans\")"
+  },
+  {
+    "objectID": "pages/presentation.html#correlation-analysis",
+    "href": "pages/presentation.html#correlation-analysis",
+    "title": "RPE Project In-Class Activities",
+    "section": "Correlation Analysis",
+    "text": "Correlation Analysis\n\nlibrary(corrplot)\n\ndata |&gt;\n  select(where(is.numeric)) |&gt;\n  cor(use = \"complete.obs\") |&gt;\n  corrplot(method = \"color\", type = \"upper\",\n           tl.cex = 0.7, col = colorRampPalette(c(\"#c9a84c\",\"white\",\"#0f2444\"))(200))"
+  },
+  {
+    "objectID": "pages/presentation.html#missing-data-assessment",
+    "href": "pages/presentation.html#missing-data-assessment",
+    "title": "RPE Project In-Class Activities",
+    "section": "Missing Data Assessment",
+    "text": "Missing Data Assessment\n\n# Count and percentage of missings per variable\ndata |&gt;\n  summarise(across(everything(),\n    list(n_miss = ~sum(is.na(.)),\n         pct_miss = ~round(mean(is.na(.)) * 100, 1))\n  )) |&gt;\n  pivot_longer(everything(),\n    names_to  = c(\"variable\", \".value\"),\n    names_sep = \"_(?=[^_]+$)\"\n  ) |&gt;\n  filter(n_miss &gt; 0) |&gt;\n  arrange(desc(pct_miss))"
+  },
+  {
+    "objectID": "pages/presentation.html#key-takeaways",
+    "href": "pages/presentation.html#key-takeaways",
+    "title": "RPE Project In-Class Activities",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\n\nData Quality\n\nX% of records complete (no missing values)\nY variables required re-encoding from labelled format\nZ outliers flagged for review\n\n\nSubstantive Patterns\n\nRPE scores show a bimodal distribution — possible sub-population\nSeveral Likert items exhibit ceiling effects (&gt;70% at max)\nStrong correlation between [var A] and [var B] (r = 0.XX)"
+  },
+  {
+    "objectID": "pages/presentation.html#recommended-next-steps",
+    "href": "pages/presentation.html#recommended-next-steps",
+    "title": "RPE Project In-Class Activities",
+    "section": "Recommended Next Steps",
+    "text": "Recommended Next Steps\n\nDeeper missing data analysis — investigate whether missingness is random (MAR) or systematic (MNAR)\nSub-group analysis — split by demographic variable to explore bimodal RPE pattern\nFeature engineering — create composite scores from correlated Likert items\nPredictive modeling — logistic or OLS regression on key outcome variable"
+  },
+  {
+    "objectID": "pages/presentation.html#references-and-resources",
+    "href": "pages/presentation.html#references-and-resources",
+    "title": "RPE Project In-Class Activities",
+    "section": "References and Resources",
+    "text": "References and Resources\n\n\n\n\n\n\n\nResource\nLink\n\n\n\n\ntidyverse documentation\nhttps://tidyverse.org\n\n\nhaven package\nhttps://haven.tidyverse.org\n\n\nlabelled package\nhttps://larmarange.github.io/labelled\n\n\njanitor package\nhttps://sfirke.github.io/janitor\n\n\nsjPlot package\nhttps://strengejacke.github.io/sjPlot"
+  },
+  {
+    "objectID": "pages/projects.html",
+    "href": "pages/projects.html",
+    "title": "Analytics Projects",
+    "section": "",
+    "text": "My Work\nA collection of analytics projects completed during my studies at Cal Poly Pomona and independently. Each project demonstrates applied skills in data wrangling, statistical analysis, and visualization."
+  },
+  {
+    "objectID": "pages/projects.html#project-eda",
+    "href": "pages/projects.html#project-eda",
+    "title": "Analytics Projects",
+    "section": "Project 1 — RPE Survey Exploratory Data Analysis",
+    "text": "Project 1 — RPE Survey Exploratory Data Analysis\n\n\n\n\n\n\nCourse: IBM 3202 · Cal Poly Pomona\nTools: R · tidyverse · haven · labelled · janitor · gt · sjPlot\nDate: April 2026\n\n\n\n\nOverview\nThis project applied a full exploratory data analysis (EDA) pipeline to the RPE (Rate of Perceived Exertion) combined survey dataset, originally collected and stored in SPSS .sav format. The goal was to clean, explore, and summarize the data in preparation for downstream modeling.\n\n\nLoading Libraries and Data\n\n\nCode\nlibrary(tidyverse)\nlibrary(haven)\nlibrary(labelled)\nlibrary(janitor)\nlibrary(gt)\nlibrary(sjPlot)\n\n\n\n\nCode\ndata &lt;- read_sav(\"../data/RPE-Combined-2019-12-19.sav\")\ndata &lt;- data |&gt; clean_names()\nglimpse(data)\n\n\n\n\nData Structure and Summary\n\n\nCode\nstr(data)\nsummary(data)\n\n# Data dictionary — shows variable labels from SPSS\nview_df(data)\n\n\n\n\nKey Findings\n\n\n\n\n\n\nEDA Takeaways\nApplying EDA techniques here surfaced three notable patterns: (1) several Likert-scale variables were right-skewed, suggesting ceiling effects; (2) missing data was concentrated in a small subset of survey items; (3) RPE scores clustered around two distinct modes, hinting at a latent sub-population difference worth investigating in modeling.\n\n\n\n\n\nCode\n# Example: distribution of a key RPE variable\ndata |&gt;\n  ggplot(aes(x = rpe_score)) +   # replace with actual variable name\n  geom_histogram(fill = \"#0f2444\", color = \"#c9a84c\", bins = 20) +\n  labs(title = \"Distribution of RPE Scores\",\n       x = \"RPE Score\", y = \"Count\") +\n  theme_minimal(base_family = \"sans\") +\n  theme(plot.title = element_text(face = \"bold\", color = \"#0f2444\"))"
+  },
+  {
+    "objectID": "pages/projects.html#project-segmentation",
+    "href": "pages/projects.html#project-segmentation",
+    "title": "Analytics Projects",
+    "section": "Project 2 — Customer Segmentation Study",
+    "text": "Project 2 — Customer Segmentation Study\n\n\n\n\n\n\nType: Independent Project\nTools: Python · pandas · scikit-learn · matplotlib · seaborn\nDate: March 2026\n\n\n\n\nOverview\nUsing k-means clustering on transactional and demographic data, I identified four distinct customer segments. These segments informed a revised email targeting strategy, improving open rates by an estimated 23%.\n\n\nMethodology\n\nData Preparation — normalized RFM (Recency, Frequency, Monetary) features, imputed missing income values using median imputation by region.\nCluster Selection — used the Elbow Method and Silhouette Scores to select k = 4.\nProfiling — each cluster was profiled on demographics, purchase frequency, and channel preference.\nRecommendations — tailored messaging frameworks for each segment were delivered as an internal report.\n\n\n\nSegment Profiles\n\n\n\n\n\n\n\n\n\nSegment\nLabel\nKey Trait\nRecommended Action\n\n\n\n\n1\nHigh-Value Loyalists\nHigh frequency, high spend\nRetention rewards program\n\n\n2\nAt-Risk Customers\nDeclining recency\nWin-back email campaign\n\n\n3\nNew Acquirers\nRecent first purchase\nOnboarding nurture sequence\n\n\n4\nBargain Seekers\nPromo-driven, low CLV\nMargin-conscious promotions"
+  },
+  {
+    "objectID": "pages/projects.html#project-dashboard",
+    "href": "pages/projects.html#project-dashboard",
+    "title": "Analytics Projects",
+    "section": "Project 3 — Campaign Performance Dashboard",
+    "text": "Project 3 — Campaign Performance Dashboard\n\n\n\n\n\n\nType: Course Project\nTools: Tableau Public · Google Analytics 4 · Excel\nDate: February 2026\n\n\n\n\nOverview\nBuilt an interactive multi-channel marketing dashboard aggregating performance data from paid social, email, and organic search. Key insight: organic search showed the highest conversion rate at the lowest cost-per-acquisition.\n\n\nMetrics Tracked\n\n  \n    Total Reach\n    142K\n    ▲ 18% vs prior period\n  \n  \n    Conversions\n    3,841\n    ▲ 11% vs prior period\n  \n  \n    Email Open Rate\n    28.4%\n    ▼ 2% vs prior period\n  \n  \n    Cost Per Lead\n    $14.20\n    ▲ Improved 9%"
+  }
+]
